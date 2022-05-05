@@ -1,8 +1,6 @@
 package RWS.products.models;
 
-import java.time.LocalDateTime;
-
-public class ProCategory {
+public class Category {
 
     private String name;
     private String image;
@@ -17,11 +15,11 @@ public class ProCategory {
 //            "dateTimeCreated": "2022-03-08T15:29:10.859"
 
 
-    public ProCategory() {
+    public Category() {
 
     }
 
-    public ProCategory(String name, String image, String id, String dateTimeCreated) {
+    public Category(String name, String image, String id, String dateTimeCreated) {
         this.name = name;
         this.image = image;
         this.id = id;
