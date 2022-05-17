@@ -1,10 +1,19 @@
 package RWS.products.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "rws")
 public class Category {
 
-    private String name;
-    private String image;
+    @Id
     private String id;
+    @Column
+    private String name;
+    @Column
+    private String image;
+    @Column
     private String dateTimeCreated;
 
 
