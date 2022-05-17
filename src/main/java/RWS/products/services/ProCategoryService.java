@@ -17,47 +17,53 @@ public class ProCategoryService
     @Autowired
     private DB_Repository repository;
     
-    public List<Category> categories = new ArrayList<Category>();
+
 
     public List<Category> getAllCategories(){
-        categories =  repository.getCategories();
+        List<Category> categories = new ArrayList<Category>();
+        repository.findAll().forEach(a -> categories.add(a));
         return categories;
     }
 
 
     public Category getCategory(String id)
     {
-        for (Category c: categories)
-        {
-            if ( Objects.equals(c.getId(), id))
-            {
-                return c;
-            }
-        }
-        return null;
+//        for (Category c: categories)
+//        {
+//            if ( Objects.equals(c.getId(), id))
+//            {
+//                return c;
+//            }
+//        }
+        return repository.findById(id).orElse(null);
     }
 
 
     public void addNewCategory(Category category)
     {
-        categories.add(category);
+        repository.save(category);
     }
 
 
     public void updateCategory(Category category)
     {
-        for(int i = 0; i < categories.size(); i++)
-        {
-            Category c = categories.get(i);
-            if(c.getId().equals(category.getId()))
-            {
-                categories.set(i,category);
-            }
-        }
+//        for(int i = 0; i < categories.size(); i++)
+//        {
+//            Category c = categories.get(i);
+//            if(c.getId().equals(category.getId()))
+//            {
+//                categories.set(i,category);
+//            }
+//        }
+        repository.save(category);
     }
 
 
     public void deleteCategory(String id) {
-        categories.removeIf(c -> c.getId().equals(id));
+//        categories.removeIf(c -> c.getId().equals(id));
+
+        repository.deleteById(id);
     }
+
+
 }
