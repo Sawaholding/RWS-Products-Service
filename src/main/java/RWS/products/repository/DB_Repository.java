@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface DB_Repository extends CrudRepository<Category,String> {
 
-    Optional<Category> findbyNameAndImage(String name, String image);
+//    Optional<Category> findbyNameAndImage(String name, String image);
 
 //@Service
 //public class DB_Repository {
