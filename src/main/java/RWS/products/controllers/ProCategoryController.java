@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class ProCategoryController {
-
+public class ProCategoryController
+{
     @Autowired
     private ProCategoryService categoryService;
 
@@ -21,9 +22,7 @@ public class ProCategoryController {
 
     @RequestMapping("/categories/{id}")
     public Category getCategory(@PathVariable String id){
-        return categoryService.getCategory(id);
-
-    }
+        return categoryService.getCategory(id);}
 
     @RequestMapping( method = RequestMethod.POST, value = "/categories")
     public void addCategory(@RequestBody Category category){
@@ -35,7 +34,7 @@ public class ProCategoryController {
         categoryService.updateCategory(category);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value ="/categories/{id}")
+    @DeleteMapping("/categories/{id}")
     public void updateCategory(@PathVariable String id){
         categoryService.deleteCategory(id);
     }
